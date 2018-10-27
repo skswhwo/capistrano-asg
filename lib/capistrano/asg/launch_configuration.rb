@@ -31,7 +31,8 @@ module Capistrano
               enabled: fetch(:aws_launch_configuration_detailed_instance_monitoring, true)
             },
             user_data: region_config.fetch(:aws_launch_configuration_user_data, nil),
-            iam_instance_profile: ec2_instance.iam_instance_profile&.arn
+            iam_instance_profile: ec2_instance.iam_instance_profile&.arn,
+            spot_price: region_config.fetch(:aws_launch_configuration_spot_price, nil)
           )
         end
       end
